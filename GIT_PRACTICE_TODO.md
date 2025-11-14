@@ -61,10 +61,10 @@ git show <commit-hash>
 ```
 
 ### 4. 撤销与修改
-- [ ] 撤销工作区的修改（git checkout）
-- [ ] 取消暂存的文件（git reset）
-- [ ] 修改最近一次提交信息（git commit --amend）
-- [ ] 撤销某次提交（git revert）
+- [x] 撤销工作区的修改（git restore）
+- [x] 取消暂存的文件（git restore --staged）
+- [x] 修改最近一次提交信息（git commit --amend）
+- [x] 撤销某次提交（git revert）
 
 **要学习的命令：**
 ```bash
@@ -406,10 +406,10 @@ git grep <pattern>
 ## 📈 进度统计
 
 - **总任务数：** 26 个大任务
-- **已完成：** 3 ✅
+- **已完成：** 4 ✅
 - **进行中：** 0 🔄
-- **未开始：** 23 ⏳
-- **完成度：** 11.5%
+- **未开始：** 22 ⏳
+- **完成度：** 15.4%
 
 ---
 
