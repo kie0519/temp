@@ -1,0 +1,1 @@
+这是一个用于演示 git commit --amend 的测试文件
