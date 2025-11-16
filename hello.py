@@ -44,6 +44,10 @@ def square_root(a):
         return "错误：不能对负数求平方根"
     return a ** 0.5
 
+def absolute(a):
+    """绝对值运算"""
+    return abs(a)
+
 def interactive_calculator():
     """交互式计算器"""
     print("\n=== 交互式计算器 ===")
