@@ -32,6 +32,12 @@ def power(a, b):
         return "错误：参数必须是数字"
     return a ** b
 
+def modulo(a, b):
+    """取模运算"""
+    if b == 0:
+        return "错误：除数不能为零"
+    return a % b
+
 def interactive_calculator():
     """交互式计算器"""
     print("\n=== 交互式计算器 ===")
