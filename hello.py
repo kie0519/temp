@@ -85,6 +85,7 @@ def main():
     print(f"10 - 5 = {subtract(10, 5)}")
     print(f"10 * 5 = {multiply(10, 5)}")
     print(f"10 / 5 = {divide(10, 5)}")
+    print(f"2 ** 3 = {power(2, 3)}")
 
     # 启动交互式计算器
     use_interactive = input("\n是否使用交互式计算器？(y/n): ")
