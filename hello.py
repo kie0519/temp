@@ -6,7 +6,7 @@
 
 def greet(name):
     """向指定的人打招呼"""
-    return f"你好，{name}！欢迎使用 Git 练习项目！"
+    return f"你好 {name}! Welcome to our Git practice project!"
 
 def add(a, b):
     """加法运算"""
