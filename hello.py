@@ -26,6 +26,12 @@ def divide(a, b):
         return "错误：除数不能为零"
     return a / b
 
+def power(a, b):
+    """幂运算"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        return "错误：参数必须是数字"
+    return a ** b
+
 def interactive_calculator():
     """交互式计算器"""
     print("\n=== 交互式计算器 ===")
