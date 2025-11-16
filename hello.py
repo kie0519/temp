@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-简单的 Python 示例程序
-用于 Git 练习
+Python 数学工具集
+用于 Git 高级操作学习
 """
 
 def greet(name):
