@@ -38,6 +38,12 @@ def modulo(a, b):
         return "错误：除数不能为零"
     return a % b
 
+def square_root(a):
+    """平方根运算"""
+    if a < 0:
+        return "错误：不能对负数求平方根"
+    return a ** 0.5
+
 def interactive_calculator():
     """交互式计算器"""
     print("\n=== 交互式计算器 ===")
