@@ -32,6 +32,22 @@ def power(a, b):
         return "错误：参数必须是数字"
     return a ** b
 
+def modulo(a, b):
+    """取模运算"""
+    if b == 0:
+        return "错误：除数不能为零"
+    return a % b
+
+def square_root(a):
+    """平方根运算"""
+    if a < 0:
+        return "错误：不能对负数求平方根"
+    return a ** 0.5
+
+def absolute(a):
+    """绝对值运算"""
+    return abs(a)
+
 def interactive_calculator():
     """交互式计算器"""
     print("\n=== 交互式计算器 ===")
