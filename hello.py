@@ -26,6 +26,49 @@ def divide(a, b):
         return "错误：除数不能为零"
     return a / b
 
+def interactive_calculator():
+    """交互式计算器"""
+    print("\n=== 交互式计算器 ===")
+    print("支持操作: +（加）, -（减）, *（乘）, /（除）")
+    print("输入 'q' 退出\n")
+
+    while True:
+        try:
+            num1 = input("请输入第一个数字: ")
+            if num1.lower() == 'q':
+                print("感谢使用计算器！")
+                break
+
+            operator = input("请输入运算符 (+, -, *, /): ")
+            if operator.lower() == 'q':
+                print("感谢使用计算器！")
+                break
+
+            num2 = input("请输入第二个数字: ")
+            if num2.lower() == 'q':
+                print("感谢使用计算器！")
+                break
+
+            num1 = float(num1)
+            num2 = float(num2)
+
+            if operator == '+':
+                result = add(num1, num2)
+            elif operator == '-':
+                result = subtract(num1, num2)
+            elif operator == '*':
+                result = multiply(num1, num2)
+            elif operator == '/':
+                result = divide(num1, num2)
+            else:
+                print("无效的运算符！")
+                continue
+
+            print(f"结果: {num1} {operator} {num2} = {result}\n")
+
+        except ValueError:
+            print("错误：请输入有效的数字！\n")
+
 def main():
     """主函数"""
     print(greet("Git 学习者"))
@@ -36,6 +79,11 @@ def main():
     print(f"10 - 5 = {subtract(10, 5)}")
     print(f"10 * 5 = {multiply(10, 5)}")
     print(f"10 / 5 = {divide(10, 5)}")
+
+    # 启动交互式计算器
+    use_interactive = input("\n是否使用交互式计算器？(y/n): ")
+    if use_interactive.lower() == 'y':
+        interactive_calculator()
 
 if __name__ == "__main__":
     main()
