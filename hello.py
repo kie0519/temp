@@ -22,7 +22,8 @@ def multiply(a, b):
 
 def divide(a, b):
     """除法运算"""
-    # Bug: 移除了除零检查
+    if b == 0:
+        return "错误：除数不能为零"
     return a / b
 
 def power(a, b):
