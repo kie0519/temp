@@ -326,10 +326,11 @@ git rm --cached <file>        # 移除已追踪的文件
 ```
 
 ### 21. Git Hooks（钩子）
-- [ ] 了解 Git Hooks 的作用
-- [ ] 创建 pre-commit 钩子
-- [ ] 创建 commit-msg 钩子验证提交信息
-- [ ] 使用 Husky 管理钩子（可选）
+- [x] 了解 Git Hooks 的作用
+- [x] 学习客户端钩子（pre-commit, commit-msg, pre-push 等）
+- [x] 学习服务端钩子（pre-receive, post-receive 等）
+- [x] 了解 Husky 和 pre-commit 等工具
+- [x] 创建完整的 Git Hooks 指南文档
 
 **钩子位置：** `.git/hooks/`
 
@@ -407,10 +408,10 @@ git grep <pattern>
 ## 📈 进度统计
 
 - **总任务数：** 26 个大任务
-- **已完成：** 20 ✅
+- **已完成：** 21 ✅
 - **进行中：** 0 🔄
-- **未开始：** 6 ⏳
-- **完成度：** 76.9%
+- **未开始：** 5 ⏳
+- **完成度：** 80.8%
 
 ---
 
