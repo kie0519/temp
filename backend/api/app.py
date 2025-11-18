@@ -2,8 +2,15 @@
 智能计算器 API 服务
 FastAPI 主应用入口
 """
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+from utils.database import init_db
+
+# 加载环境变量
+load_dotenv()
 
 app = FastAPI(
     title="智能计算器 API",
@@ -13,14 +20,23 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS 配置
+# CORS 配置 - 从环境变量读取允许的源
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 生产环境需要限制
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+async def startup_event():
+    """应用启动时初始化数据库"""
+    print("🚀 正在启动应用...")
+    init_db()
+    print("✅ 应用启动完成")
 
 @app.get("/")
 async def root():
