@@ -54,29 +54,59 @@ class GLMClient:
             response.raise_for_status()
             return response.json()
     
-    def calculate(self, query: str) -> str:
+    def calculate(self, query: str) -> tuple[str, str, int]:
         """
         使用 AI 进行智能计算
-        
+
         Args:
             query: 用户的计算请求（自然语言）
-        
+
         Returns:
-            计算结果
+            tuple[str, str, int]: (理解的表达式, 计算结果, 使用的token数)
         """
+        # 读取系统提示词
+        prompt_file = os.path.join(
+            os.path.dirname(__file__), "prompts", "calculator_system.txt"
+        )
+
+        try:
+            with open(prompt_file, "r", encoding="utf-8") as f:
+                system_prompt = f.read()
+        except FileNotFoundError:
+            system_prompt = """你是一个数学计算助手。用户会用自然语言描述数学问题，你需要:
+1. 理解用户的意图
+2. 提取出标准的数学表达式
+3. 计算结果
+
+请以JSON格式返回:
+{
+  "expression": "提取的数学表达式",
+  "result": "计算结果(仅数字)"
+}"""
+
         messages = [
-            {
-                "role": "system",
-                "content": "你是一个数学计算助手。用户会用自然语言描述数学问题，你需要理解问题并给出准确的计算结果。只返回计算结果，不要有多余的解释。"
-            },
-            {
-                "role": "user",
-                "content": query
-            }
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": query}
         ]
-        
-        result = self.chat_completion(messages)
-        return result["choices"][0]["message"]["content"]
+
+        response = self.chat_completion(messages, temperature=0.7)
+
+        # 提取结果
+        content = response["choices"][0]["message"]["content"]
+        tokens_used = response.get("usage", {}).get("total_tokens", 0)
+
+        # 尝试解析JSON响应
+        import json
+        try:
+            result_data = json.loads(content)
+            expression = result_data.get("expression", "")
+            result = result_data.get("result", "")
+        except (json.JSONDecodeError, AttributeError):
+            # 如果不是JSON格式,尝试直接解析
+            expression = query
+            result = content.strip()
+
+        return expression, result, tokens_used
 
 # 使用示例
 if __name__ == "__main__":
