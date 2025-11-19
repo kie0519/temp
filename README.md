@@ -104,7 +104,7 @@ open http://localhost:8000/docs
 
 ```bash
 # 安装依赖
-cd frontend/web/react
+cd frontend/web
 npm install
 
 # 启动开发服务器
@@ -113,6 +113,8 @@ npm run dev
 # 访问应用
 open http://localhost:5173
 ```
+
+详细部署指南参见 [DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ## 📚 学习路径
 
@@ -153,10 +155,22 @@ open http://localhost:5173
 
 ## 📄 文档
 
-- [项目结构](docs/PROJECT_STRUCTURE.md)
-- [BRD - 商业需求](docs/product/BRD.md)
-- [API 文档](http://localhost:8000/docs)
+### 产品文档
+- [BRD - 商业需求文档](docs/product/BRD.md)
+- [MRD - 市场需求文档](docs/product/MRD.md)
+- [PRD - 产品需求文档](docs/product/PRD.md)
+- [FRD - 功能需求文档](docs/product/FRD.md)
+
+### 技术文档
+- [系统架构设计](docs/design/architecture.md)
+- [API 使用指南](docs/api/API_USAGE.md)
+- [部署指南](docs/DEPLOYMENT.md)
+- [项目进度报告](docs/PROJECT_PROGRESS.md)
+- [项目结构说明](docs/PROJECT_STRUCTURE.md)
+
+### 开发文档
 - [Git 学习指南](docs/development/GIT_PRACTICE_TODO.md)
+- [API Swagger 文档](http://localhost:8000/docs) (需启动后端服务)
 
 ## 🛠️ 技术栈
 
@@ -183,23 +197,40 @@ open http://localhost:5173
 
 ## 📊 项目进度
 
+**当前进度: 50%** (已完成文档、后端、前端 Web)
+
+### 已完成 ✅
 - [x] 项目规划与架构设计
+- [x] 产品文档（BRD/MRD/PRD/FRD）
+- [x] 系统架构设计
 - [x] CLI 版本实现
-- [x] 产品文档（BRD）
-- [ ] API 服务实现
-- [ ] Web 前端实现
-- [ ] AI 功能集成
-- [ ] 移动端实现
-- [ ] 硬件实现
-- [ ] 完整测试覆盖
+- [x] 数据库模型和迁移
+- [x] API 服务实现 (10个端点)
+- [x] AI 功能集成 (智谱 GLM-4.6)
+- [x] Web 前端实现 (React + TypeScript)
+
+### 进行中 🚧
+- [ ] 单元测试和集成测试
+- [ ] Docker 容器化
+- [ ] CI/CD 流程
+
+### 待开发 📋
+- [ ] 桌面应用 (Electron/Tauri)
+- [ ] 移动端 (React Native/Flutter)
+- [ ] 小程序 (微信/支付宝)
+- [ ] 硬件版本 (Arduino/树莓派)
 - [ ] 生产环境部署
 
 ## 📈 统计数据
 
-- **代码行数**: ~2000+ 行
-- **文档数量**: 15+ 篇
-- **测试覆盖**: 目标 80%+
-- **支持平台**: 7+ 个
+- **代码行数**: ~3500+ 行
+  - 产品文档: 2500+ 行
+  - 后端代码: 1400+ 行
+  - 前端代码: 1300+ 行
+- **文档数量**: 20+ 篇
+- **Git 提交**: 35+ 次
+- **API 端点**: 10 个
+- **支持平台**: 2 个 (CLI + Web, 计划 7+)
 
 ## 📝 变更日志
 
